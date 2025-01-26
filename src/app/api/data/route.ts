@@ -1,21 +1,21 @@
-import {auth,currentUser} from "@clerk/nextjs/server"
+import { currentUser } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
-import {  useUser } from "@clerk/nextjs";
 
+export async function GET() {
+    const user = await currentUser(); // Use currentUser directly for server-side logic
 
-export async function GET(){
-    const { user } = useUser();
-    const users = await currentUser();
-
-    if(!user){
-        return NextResponse.json({message : "Not Authentcated"},{status : 401});
+    if (!user) {
+        return NextResponse.json(
+            { message: "Not Authenticated" },
+            { status: 401 }
+        );
     }
+
     return NextResponse.json(
         {
-            message :"Authenticated",
-            deta:{userId:user,username:users?.username}
-        
+            message: "Authenticated",
+            data: { userId: user.id, username: user.username }, // Access user.id and user.username
         },
-        {status :200}
+        { status: 200 }
     );
 }

@@ -28,6 +28,7 @@ export default function RootLayout({
           </SignedOut>
           <ClerkLoaded>
           <SignedIn>
+            <Navbar />
             <UserButton />
           </SignedIn>
           {children}
