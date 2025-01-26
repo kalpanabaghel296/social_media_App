@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { auth } from "@clerk/nextjs/server";
+//import { auth } from "@clerk/nextjs/server";
 import { UserButton } from "@clerk/nextjs";
-import { UserProfile, useUser } from "@clerk/nextjs"; 
+import {  useUser } from "@clerk/nextjs"; 
 
 const Navbar = () => {
     const {user} = useUser();
