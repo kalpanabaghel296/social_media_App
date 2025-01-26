@@ -1,4 +1,4 @@
-"use servers";
+"use server";
 
 import User from '@modals/user.modal';
 
